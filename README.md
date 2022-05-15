@@ -9,6 +9,8 @@ Result
 
 ![Output ](https://user-images.githubusercontent.com/70428805/168469143-539a283c-f30d-4492-bed7-3884fae3d3bd.jpeg)
 
+Fig: Time profile of a drug over several hours vs Concentratation of blood plasma 
+
 Readings:
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4394611/
  
