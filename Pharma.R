@@ -2,7 +2,7 @@
 ############################ CODING BLOCK ########################################
 ##################################################################################
 # Run-Time Environment:   R version 3.5.1
-# Author:			            M.J. van Esdonk, LACDR
+# Author:			            Neilay Bhalerao
 # Short title:			      Pharmacokinetic simulations in R 
 # Version:			          V.1.0
 # Model based on:
