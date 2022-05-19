@@ -173,4 +173,34 @@ ggplot(sum_stat, aes(x=time,y=Median_C)) +
   theme(legend.position="none")
 
 
+###### Monte Carlo simulation
+  
+#Every curve has an equation. The equation for the PK curve can be found via excel trendline
+#The equation for this curve was:
+#y = -0.0015x6 + 0.0601x5 - 0.9303x4 + 7.0138x3 - 25.866x2 + 37.139x + 7.482
+#Now that we have the equation, we can perform monte carlo simulation
+
+f <- function(x) -0.0015*x^6 + 0.0601*x^5 - 0.9303*x^4 + 7.0138*x^3 - 25.866*x^2 + 37.139*x + 7.482
+
+#Plotting the curve again via the equation
+
+curve(f, from =0, to =8) 
+library(DescTools)  
+Shade(f, breaks = c(0,8), col = "red") # Shading the required region
+
+###1st Monte carlo estimation
+
+query_points <- runif(n=2000, min = 0, max = 8) #sampling 2000 points between 0 & 8
+8* mean(f(query_points)) #Applying our function f to the random points and compute the corresponding mean
+#here 8 is the length of interval
+
+#Now lets see if the number of random points we sampled affects the accuracy of our estimate
+
+area_estimates <- vector (length = 10000)
+for (i in 1:10000) {
+  query_points <- runif(n = i,min = 0, max = 8)
+  area_estimates[i] <- 8* mean(f(query_points))
+}
+plot(area_estimates)
+abline(h= 95, col= "red", lwd =2)
 
